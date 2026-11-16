@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Canada Applicant Showcase | Applicant Status Updates</title>
+  <meta name="description" content="Explore information about Canada and view applicant status updates on an independent applicant showcase portal.">
+  <meta name="robots" content="index,follow">
+  <meta name="theme-color" content="#c8102e">
+  <link rel="canonical" href="https://example.com/">
+  <meta property="og:title" content="Canada Applicant Showcase">
+  <meta property="og:description" content="Canada information and applicant status updates. Independent, non-government website.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="#"><span class="maple">✦</span><span>Canada<span class="brand-light">Connect</span></span></a>
+  <nav><a href="#about">About Canada</a><a href="#cities">Cities</a><a href="#applicants">Applicants</a><a class="nav-admin" href="#admin">Admin ↗</a></nav>
+</header>
+<main>
+  <section class="hero">
+    <div class="hero-copy">
+      <span class="eyebrow"><i></i> YOUR CANADA INFORMATION HUB</span>
+      <h1>A new chapter.<br><em>A world of possibilities.</em></h1>
+      <p>Discover Canada, explore its vibrant cities, and follow applicant status updates in one clear, easy-to-use place.</p>
+      <a class="primary-btn" href="#applicants">View applicant updates <span>→</span></a>
+      <p class="notice">Independent information portal — not affiliated with the Government of Canada.</p>
+    </div>
+    <div class="hero-art" aria-label="Illustration of the Canadian flag">
+      <div class="flag-card"><div class="flag"><span></span><b>✦</b><span></span></div><div class="flag-caption"><strong>CANADA</strong><small>From coast to coast to coast</small></div></div>
+      <div class="floating f-one">🍁 <span>Welcoming communities</span></div>
+      <div class="floating f-two">✈ <span>New opportunities</span></div>
+    </div>
+  </section>
+
+  <section class="intro section" id="about">
+    <div><span class="eyebrow red">GET TO KNOW CANADA</span><h2>A country of remarkable<br>diversity and opportunity.</h2></div>
+    <p>Canada is the second-largest country in the world by total area. Known for its natural landscapes, multicultural communities and two official languages — English and French — Canada offers a rich mix of cultures, experiences and places to explore.</p>
+  </section>
+  <section class="facts">
+    <article><span>🏙️</span><strong>10</strong><small>Provinces</small></article>
+    <article><span>🌲</span><strong>3</strong><small>Territories</small></article>
+    <article><span>🗣️</span><strong>2</strong><small>Official languages</small></article>
+    <article><span>🌎</span><strong>North America</strong><small>Location</small></article>
+  </section>
+  <section class="section cities" id="cities">
+    <div class="section-heading"><div><span class="eyebrow red">EXPLORE THE COUNTRY</span><h2>Discover Canadian cities</h2></div><p>Every city has its own character, culture and pace of life.</p></div>
+    <div class="city-grid">
+      <article class="city-card city-toronto"><div class="city-symbol">CN</div><div><small>ONTARIO</small><h3>Toronto</h3><p>A lively, multicultural city known for its skyline, arts and business districts.</p></div></article>
+      <article class="city-card city-vancouver"><div class="city-symbol">🌲</div><div><small>BRITISH COLUMBIA</small><h3>Vancouver</h3><p>A coastal city surrounded by mountains, parks and ocean views.</p></div></article>
+      <article class="city-card city-montreal"><div class="city-symbol">M</div><div><small>QUEBEC</small><h3>Montréal</h3><p>A creative city celebrated for its French heritage, food and festivals.</p></div></article>
+      <article class="city-card city-ottawa"><div class="city-symbol">✦</div><div><small>ONTARIO</small><h3>Ottawa</h3><p>Canada’s capital, home to national institutions, museums and landmarks.</p></div></article>
+    </div>
+  </section>
+  <section class="applicants-section" id="applicants">
+    <div class="section-heading"><div><span class="eyebrow red">STATUS DIRECTORY</span><h2>Applicant updates</h2></div><p>Browse the latest published applicant status updates.</p></div>
+    <div class="status-tabs" role="tablist">
+      <button class="status-tab active" data-filter="all">All applicants <span id="count-all">0</span></button>
+      <button class="status-tab" data-filter="accepted">Accepted <span id="count-accepted">0</span></button>
+      <button class="status-tab" data-filter="pending">Pending <span id="count-pending">0</span></button>
+      <button class="status-tab" data-filter="rejected">Rejected <span id="count-rejected">0</span></button>
+    </div>
+    <div id="applicant-list" class="applicant-list"><div class="empty-state">Connect Supabase to load published applicants.</div></div>
+    <p class="privacy-note">Applicant information is displayed only with the administrator’s publication settings and the applicant’s consent. Never publish passport numbers or private contact details.</p>
+  </section>
+
+  <section class="admin-section" id="admin">
+    <div class="admin-wrap">
+      <div class="section-heading"><div><span class="eyebrow red">SECURE MANAGEMENT</span><h2>Administrator portal</h2></div><p>Manage applicant records and public visibility.</p></div>
+      <div id="setup-warning" class="setup-warning">Supabase is not configured yet. Add your project URL and anon key in <code>app.js</code>, then run <code>supabase.sql</code> in your Supabase SQL Editor.</div>
+      <div id="login-panel" class="admin-panel">
+        <h3>Administrator sign in</h3><p class="muted">Use the administrator account created in Supabase Authentication.</p>
+        <form id="login-form" class="form-grid">
+          <label>Email<input id="login-email" type="email" autocomplete="username" required placeholder="admin@example.com"></label>
+          <label>Password<input id="login-password" type="password" autocomplete="current-password" required placeholder="Your password"></label>
+          <button class="primary-btn" type="submit">Sign in securely →</button>
+          <p id="login-message" class="form-message"></p>
+        </form>
+      </div>
+      <div id="dashboard" class="admin-panel hidden">
+        <div class="dashboard-top"><div><h3>Applicant management</h3><p class="muted" id="admin-email"></p></div><button id="logout-btn" class="outline-btn">Sign out</button></div>
+        <form id="applicant-form" class="form-grid two">
+          <input type="hidden" id="edit-id">
+          <label>Applicant name<input id="app-name" required maxlength="90" placeholder="Full name"></label>
+          <label>Status<select id="app-status"><option value="pending">Pending</option><option value="accepted">Accepted</option><option value="rejected">Rejected</option></select></label>
+          <label>Age <input id="app-age" type="number" min="1" max="120" placeholder="Age (private by default)"></label>
+          <label>Phone number <input id="app-phone" type="tel" placeholder="Phone (private by default)"></label>
+          <label>Passport status<select id="app-passport"><option value="On process">On process</option><option value="Issued">Issued</option><option value="Not started">Not started</option><option value="Other">Other</option></select></label>
+          <label>Location<input id="app-location" value="Canada" maxlength="80"></label>
+          <label class="full">Applicant photo<input id="app-photo" type="file" accept="image/png,image/jpeg,image/webp"><small>Use a photo you have permission to publish. Max 5 MB.</small></label>
+          <div class="visibility-box full">
+            <strong>Public visibility controls</strong>
+            <label class="check"><input id="show-age" type="checkbox"> Show age for accepted applicants</label>
+            <label class="check"><input id="show-phone" type="checkbox"> Show phone number (not recommended)</label>
+            <label class="check"><input id="show-passport" type="checkbox"> Show passport status</label>
+            <label class="check"><input id="is-published" type="checkbox" checked> Publish this applicant on the main page</label>
+          </div>
+          <div class="form-actions full"><button class="primary-btn" type="submit" id="save-btn">Add applicant +</button><button class="outline-btn hidden" type="button" id="cancel-edit">Cancel edit</button><span id="save-message" class="form-message"></span></div>
+        </form>
+        <div class="password-box">
+          <h3>Change administrator password</h3><p class="muted">Use a strong, unique password. Supabase handles password storage and authentication.</p>
+          <form id="password-form" class="password-form"><input id="new-password" type="password" minlength="8" required placeholder="New password (8+ characters)"><button class="outline-btn">Update password</button></form><p id="password-message" class="form-message"></p>
+        </div>
+        <h3 class="records-title">Current records</h3><div id="admin-records" class="admin-records"></div>
+      </div>
+    </div>
+  </section>
+</main>
+<footer><a class="brand" href="#"><span class="maple">✦</span>Canada<span class="brand-light">Connect</span></a><p>Independent information and applicant status showcase. Not a government service, immigration authority, or representative of Immigration, Refugees and Citizenship Canada (IRCC).</p><small>© <span id="year"></span> CanadaConnect. All rights reserved.</small></footer>
+<div id="toast" role="status" aria-live="polite"></div>
+<script src="app.js"></script>
+</body></html>
